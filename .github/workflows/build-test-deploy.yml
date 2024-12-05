@@ -1,1 +1,14 @@
-
+name: build-test-nodejs
+on: push
+jobs:
+  build-test-deploy:
+    runs-on: ubuntu
+    steps:
+     - name: check out repo
+       uses: actions/checkout@v3
+     - name: use node.js
+       uses: actions/setup-node@v3
+       with:
+          node-version: '18.x'
+     - run: npm install
+     - run: npm run build
